@@ -1,4 +1,4 @@
-# InsureMe Insurance Domain project 3
+# InsureMe Insurance Domain project3
 apiVersion: apps/v1
 kind: Deployment
 metadata:
