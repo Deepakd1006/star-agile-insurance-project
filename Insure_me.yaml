@@ -1,0 +1,39 @@
+# InsureMe Insurance Domain project 3
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myproject-insure
+  labels:
+    app: myproject-insure-lbl
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: insure
+    spec:
+      containers:
+      - name: insure_me
+        image: chrisdee10/insure:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
+  selector:
+    matchLabels:
+      app: insure
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myproject-insure-service
+  labels:
+    app: myproject-insure-lbl
+spec:
+  type: NodePort
+  selector:
+    app: insure
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+      nodePort: 31039
