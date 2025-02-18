@@ -13,7 +13,7 @@ spec:
         app: insure
     spec:
       containers:
-      - name: insure_me
+      - name: insure-me
         image: chrisdee10/insure:latest
         imagePullPolicy: Always
         ports:
